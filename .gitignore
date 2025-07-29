@@ -1,30 +1,57 @@
+# Laravel core
 /vendor/
 node_modules/
+.env
+.env.*
+.phpunit.result.cache
+.phpactor.json
+composer.lock
+yarn.lock
+package-lock.json
 npm-debug.log
 yarn-error.log
+auth.json
 
-# Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
+# Laravel specific
+/storage/*
+!/storage/app/public
+!/storage/*.gitignore
+/public/storage
+/public/hot
+/public/build
 
-# Laravel 5 & Lumen specific
-public/storage
-public/hot
+# Laravel cache
+bootstrap/cache/*
+!bootstrap/cache/.gitignore
 
-# Laravel 5 & Lumen specific with changed public path
-public_html/storage
-public_html/hot
+# IDEs and editors
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
 
-storage/*.key
-.env
+# OS files
+.DS_Store
+Thumbs.db
+
+# Vagrant / Homestead
 Homestead.yaml
 Homestead.json
 /.vagrant
-.phpunit.result.cache
 
-/public/build
-/storage/pail
+# Others
+*.log
+*.key
+
+# Laravel Mix & Vite
+/public/mix-manifest.json
+/public/build/
+vite.config.js
+vite.config.ts
+
+# PHPStorm
+/.phpstorm.meta.php/
+
+# Backup or deployment
 .env.backup
 .env.production
-.phpactor.json
-auth.json

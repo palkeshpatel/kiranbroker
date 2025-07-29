@@ -1,0 +1,1 @@
+<div><?php echo e(\App\Helpers\HtmlComponent::service()); ?></div>

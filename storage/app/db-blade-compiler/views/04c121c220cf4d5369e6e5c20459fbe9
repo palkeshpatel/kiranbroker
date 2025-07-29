@@ -1,0 +1,22 @@
+<section id="home_main" class="padding_bottom padding_top  about_section_bg">
+<div class="container">
+<div class="row d-flex"><!--<div class="col-lg-6 col-md-12 col-sm-12 wow fadeInRight" data-wow-delay="300ms">
+    <div class="image about-image"><img src="/storage/gallery/kiran-broker-about-me.jpg" alt="Kiran Broker" />
+    <div class="about-phone">(704) 293 1105</div>
+    <div class="about-image-corder">
+    <div class="triangle-bottomleft">&nbsp;</div>
+   <div class="image-corder-text">15 Golden years we've passed!</div></div>
+    </div>
+    </div>-->
+<div class="col-lg-12 col-md-12 col-sm-12 text-sm-left text-center wow fadeInLeft" data-wow-delay="300ms">
+<div class="heading-title mb-4">
+<h2 class="darkcolor font-bold bottom30 top20">About Me</h2>
+</div>
+<p class="bottom35 justify-align">Kiran, CCIM, is a consultant in Carolinas since 2006. Over the years, he has completed over $300M in real estate transactions, specializing in gas stations, hotels, multifamily, and land development. Today, Kiran leads several successful development projects, including his latest venture&mdash;India's first AI data center with cutting-edge liquid cooling technology.</p>
+<!--<ul class=" justify-align design-dot">
+    <li>He is an engineer by education with Six Sigma green belt certification from Wachovia Bank now which is Wells Fargo Bank.</li>
+    <li>He is involved in an organization called Carolinas Asian Chamber of Commerce and serves as Vice President where he believes that this organization brings a lot of Asian organization from so many countries on one platform and leverage their expertise by connecting them through one common platform delivering back to the community.</li>
+    </ul>--></div>
+</div>
+</div>
+</section>

@@ -1,0 +1,62 @@
+<section id="contact-part" class=" position-relative padding_half noshadow">
+<div class="container">
+<div class="widget py-5">
+<div class="row">
+<div class="col-md-6 col-sm-6">
+<div class="contact-meta px-2 text-center text-md-left"><iframe class="contact-map" style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d208648.00492321237!2d-80.97991234516908!3d35.20335333326351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88541fc4fc381a81%3A0x884650e6bf43d164!2sCharlotte%2C%20NC%2C%20USA!5e0!3m2!1sen!2sin!4v1611316565764!5m2!1sen!2sin" height="450" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+</div>
+<div class="col-md-6 col-sm-6">
+<div class="heading-title  wow fadeInUp" data-wow-delay="300ms"><form id="contact" class="getin_form wow fadeInUp" data-wow-delay="400ms">
+<div class="row px-2">
+<div class="heading-title padding_left_1 padding_right_1">
+<h3 class="darkcolor font-bold mb-4">Let's get in touch</h3>
+<p>Give us a call or drop by anytime, we endeavour to answer all enquiries within 24 hours on business days.</p>
+<div id="msg">&nbsp;</div>
+</div>
+<div id="result1" class="col-md-12 col-sm-12">&nbsp;</div>
+<div class="col-md-12 col-sm-12">
+<div class="form-group"><label class="d-none" for=""></label> <input id="" name="name" type="text" class="form-control" placeholder="Your Name:" /></div>
+</div>
+<div class="col-md-12 col-sm-12">
+<div class="form-group"><label class="d-none" for=""></label> <input name="_token" value="<?php echo e(csrf_token()); ?>" type="hidden" /> <input id="" name="email" type="email" class="form-control" placeholder="Your Email:" /></div>
+</div>
+<div class="col-md-12 col-sm-12">
+<div class="form-group"><label class="d-none" for="messae1"></label> <textarea id="" class="form-control" name="message" placeholder="Your Message:"></textarea></div>
+</div>
+<input id="recaptchaResponse" name="recaptcha_response" type="hidden" />
+<div class="col-md-12 col-sm-12"><button id="submit_btn1" class="button gradient-btn w-100" type="submit">Send Message</button></div>
+</div>
+</form></div>
+</div>
+<div class="col-md-12">
+<div class="row">
+<div class="col-lg-4 mt-5">
+<div class="card contact_card">
+<div class="card-body">
+<div class="icon-contact defaultcolor">&nbsp;</div>
+<p class="blackcolor bottom25"><a href="https://maps.app.goo.gl/EiPYS6Boej3depy29" target="_blank" rel="noopener"> 19453 W Catawba Ave ste a, Cornelius, NC</a></p>
+</div>
+</div>
+</div>
+<div class="col-lg-4 mt-5">
+<div class="card contact_card">
+<div class="card-body">
+<div class="icon-contact defaultcolor">&nbsp;</div>
+<p class="blackcolor bottom25"><a href="tel:7042931105" target="_blank" rel="noopener">(704) 293 1105</a></p>
+</div>
+</div>
+</div>
+<div class="col-lg-4 mt-5">
+<div class="card contact_card">
+<div class="card-body">
+<div class="icon-contact defaultcolor">&nbsp;</div>
+<p class="blackcolor bottom25"><a href="mailto:kiran@kinvestx.com" target="_blank" rel="noopener">kiran@kinvestx.com</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>

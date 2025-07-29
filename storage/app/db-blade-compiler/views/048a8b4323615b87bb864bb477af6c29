@@ -1,0 +1,98 @@
+<div class="invest_detail_about_section">
+<div class="container">
+<div class="row">
+<div class="col-sm-6">
+<div class="property_detail_left_thumb"><img src="images/investment-opportunities-thumb.jpg" class="img-fluid" alt="investment" /></div>
+</div>
+<div class="col-sm-6">
+<div class="property_about_right">
+<h3 class="property_detail_title">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
+<p class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<br /><br />It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="amenities_section_bg">
+<div class="container">
+<div class="row">
+<div class="col-sm-6">
+<div class="amenities_left_part">
+<h3 class="property_detail_title">Apartments Amenities</h3>
+<div class="amenitis_icon_box_bg">
+<div class="amenitis_icon_box"><span><img src="images/children-play-area-icon.png" class="img-fluid" alt="icon" /> </span>
+<p>Children Play Area</p>
+</div>
+<div class="amenitis_icon_box"><span><img src="images/children-play-area-icon.png" class="img-fluid" alt="icon" /> </span>
+<p>Children Play Area</p>
+</div>
+<div class="amenitis_icon_box"><span><img src="images/children-play-area-icon.png" class="img-fluid" alt="icon" /> </span>
+<p>Children Play Area</p>
+</div>
+<div class="amenitis_icon_box"><span><img src="images/children-play-area-icon.png" class="img-fluid" alt="icon" /> </span>
+<p>Children Play Area</p>
+</div>
+<div class="amenitis_icon_box"><span><img src="images/children-play-area-icon.png" class="img-fluid" alt="icon" /> </span>
+<p>Children Play Area</p>
+</div>
+<div class="amenitis_icon_box"><span><img src="images/children-play-area-icon.png" class="img-fluid" alt="icon" /> </span>
+<p>Children Play Area</p>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="amenities_slider_part">
+<div id="amenities_slider" class="owl-carousel">
+<div class="item"><img src="images/amenities_thumb.jpg" class="img-fluid" alt="amenities" /></div>
+<div class="item"><img src="images/amenities_thumb.jpg" class="img-fluid" alt="amenities" /></div>
+<div class="item"><img src="images/amenities_thumb.jpg" class="img-fluid" alt="amenities" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="property_gallery_section_bg">
+<div class="container">
+<h3 class="property_detail_title">Our Gallery</h3>
+<div class="property_gallery_box_bg">
+<div class="property_gallery_box"><a href="images/investment-opportunities-thumb.jpg" data-fancybox="" data-caption="Title Caption"> <img src="images/investment-opportunities-thumb.jpg" class="img-fluid" alt="thumb" /> </a></div>
+<div class="property_gallery_box"><a href="images/investment-opportunities-thumb2.jpg" data-fancybox="" data-caption="Title Caption"> <img src="images/investment-opportunities-thumb2.jpg" class="img-fluid" alt="thumb" /> </a></div>
+<div class="property_gallery_box"><a href="images/investment-opportunities-thumb3.jpg" data-fancybox="" data-caption="Title Caption"> <img src="images/investment-opportunities-thumb3.jpg" class="img-fluid" alt="thumb" /> </a></div>
+<div class="property_gallery_box"><a href="images/investment-opportunities-thumb.jpg" data-fancybox="" data-caption="Title Caption"> <img src="images/investment-opportunities-thumb.jpg" class="img-fluid" alt="thumb" /> </a></div>
+<div class="property_gallery_box"><a href="images/investment-opportunities-thumb2.jpg" data-fancybox="" data-caption="Title Caption"> <img src="images/investment-opportunities-thumb2.jpg" class="img-fluid" alt="thumb" /> </a></div>
+<div class="property_gallery_box"><a href="images/investment-opportunities-thumb3.jpg" data-fancybox="" data-caption="Title Caption"> <img src="images/investment-opportunities-thumb3.jpg" class="img-fluid" alt="thumb" /> </a></div>
+</div>
+</div>
+</div>
+<div class="property_contact_section_bg">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<h3 class="property_detail_title">Our Location</h3>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-8">
+<div class="contact_map_part"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10500.902039411167!2d2.2913514895690534!3d48.85391001859108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6701f7e8337b5%3A0xa2cb58dd28914524!2sEiffel%20Tower%2C%20Paris%2C%20France!5e0!3m2!1sen!2sin!4v1626526373921!5m2!1sen!2sin" style="border: 0;" allowfullscreen="" loading="lazy"></iframe></div>
+</div>
+<div class="col-sm-4">
+<div class="location_right_part">
+<h5>More info</h5>
+<ul class="listing">
+<li>
+<div class="fas fa-map-marker-alt"></div>
+<a>8604 Cliff Cameron Drive,<br />charlotte,nc 28269</a></li>
+<li>
+<div class="fas fa-mobile-alt"></div>
+<a href="mailto:info@example.com">info@example.com</a></li>
+<li>
+<div class="fas fa-envelope"></div>
+<a href="tel:9876543210">+91 987 654 3210</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>

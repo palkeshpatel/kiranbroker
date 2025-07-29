@@ -1,0 +1,1 @@
+<div><?php echo e(view('AgreementForm.create')); ?></div>

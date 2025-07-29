@@ -1,0 +1,26 @@
+<section class="invest-bg  padding_top padding_bottom" style="display: none;">
+<div class="container">
+<div class="row d-flex">
+<div class="col-lg-5 col-md-12 col-sm-12 wow fadeInRight" data-wow-delay="300ms">
+<div class="image"><img src="images/commercial-building-thumb.jpg" alt="Kiran Broker" /></div>
+</div>
+<div class="col-lg-7 col-md-12 col-sm-12 text-sm-left wow fadeInLeft" data-wow-delay="300ms">
+<div class="row">
+<div class="col-md-12 col-sm-12 bottom20">
+<div class="heading-title darkcolor wow fadeInUp" style="visibility: visible;" data-wow-delay="300ms">
+<h2 class="font-bold ">More About Him</h2>
+</div>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12">
+<div class="about-text-about">
+<p class="about-right-text">He is involved in NetIP (Network of Indian Professional) for Carolinas as President where he believe that this organization can help an individual connect with so many other Indian professionals locally and nationally.</p>
+<p>He has also served as board of directors on C W Williams organization.</p>
+<p>He is also an alumni of LU40 (Leaders under 40).</p>
+<p>He likes to play volleyball and is a member of Volleyball group called Organized Chaos who has ties with Breakaway Sports.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>

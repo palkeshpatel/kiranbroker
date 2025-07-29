@@ -55,4 +55,4 @@ vite.config.ts
 # Backup or deployment
 .env.backup
 .env.production
- composer-setup.php
+composer-setup.php

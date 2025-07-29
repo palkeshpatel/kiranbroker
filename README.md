@@ -1,62 +1,216 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Kiran Broker - Real Estate Management System
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A comprehensive Laravel-based real estate management system with property listings, user management, and admin panel powered by Voyager.
 
-## About Laravel
+## 🚀 System Requirements
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Server Requirements
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   **PHP**: 7.4 or higher (8.0+ recommended)
+-   **Composer**: 2.x (Composer 1.x is deprecated and will cause dependency issues)
+-   **MySQL**: 5.7+ or MariaDB 10.2+
+-   **Web Server**: Apache/Nginx
+-   **Node.js**: 14+ (for asset compilation)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### PHP Extensions Required
 
-## Learning Laravel
+-   BCMath PHP Extension
+-   Ctype PHP Extension
+-   JSON PHP Extension
+-   Mbstring PHP Extension
+-   OpenSSL PHP Extension
+-   PDO PHP Extension
+-   Tokenizer PHP Extension
+-   XML PHP Extension
+-   cURL PHP Extension
+-   GD PHP Extension
+-   Fileinfo PHP Extension
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 📦 Installation & Setup
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 1. Clone the Repository
 
-## Laravel Sponsors
+```bash
+git clone <repository-url>
+cd kiranbroker
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### 2. Install Dependencies
 
-### Premium Partners
+**IMPORTANT**: Make sure you have Composer 2.x installed. If you're using Composer 1.x, upgrade first:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+```bash
+# Check Composer version
+composer --version
 
-## Contributing
+# If using Composer 1.x, upgrade to Composer 2
+composer self-update
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Then install dependencies:
 
-## Code of Conduct
+```bash
+composer install --no-dev --optimize-autoloader
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 3. Environment Configuration
 
-## Security Vulnerabilities
+```bash
+# Copy environment file
+cp .env.example .env
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Generate application key
+php artisan key:generate
+```
 
-## License
+### 4. Database Setup
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+# Run migrations
+php artisan migrate
+
+# Seed the database (optional)
+php artisan db:seed
+```
+
+### 5. Storage Setup
+
+```bash
+# Create storage link
+php artisan storage:link
+
+# Set proper permissions
+chmod -R 775 storage bootstrap/cache
+```
+
+### 6. Voyager Admin Panel Setup
+
+```bash
+# Install Voyager
+php artisan voyager:install --with-dummy
+
+# Create admin user (if not using dummy data)
+php artisan voyager:admin your@email.com --create
+```
+
+## 🔧 Deployment Instructions
+
+### For Shared Hosting
+
+1. Upload all files to your hosting directory
+2. Set document root to `/public` folder
+3. Configure your `.env` file with production settings
+4. Run `composer install --no-dev --optimize-autoloader`
+5. Run `php artisan migrate`
+6. Set proper file permissions (755 for directories, 644 for files)
+
+### For VPS/Dedicated Server
+
+1. Follow the installation steps above
+2. Configure your web server (Apache/Nginx)
+3. Set up SSL certificate
+4. Configure cron jobs for Laravel scheduler
+
+### Environment Variables (.env)
+
+```env
+APP_NAME="Kiran Broker"
+APP_ENV=production
+APP_KEY=base64:your-key-here
+APP_DEBUG=false
+APP_URL=https://yourdomain.com
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+
+MAIL_MAILER=smtp
+MAIL_HOST=your-smtp-host
+MAIL_PORT=587
+MAIL_USERNAME=your-email
+MAIL_PASSWORD=your-password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=your-email
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+## 🛠️ Troubleshooting
+
+### Composer Issues
+
+If you encounter dependency resolution errors:
+
+1. **Composer Version Issue**:
+
+    ```bash
+    # Upgrade to Composer 2
+    composer self-update
+    ```
+
+2. **Clear Composer Cache**:
+
+    ```bash
+    composer clear-cache
+    composer install --no-dev
+    ```
+
+3. **Update Dependencies**:
+    ```bash
+    composer update --no-dev
+    ```
+
+### Permission Issues
+
+```bash
+# Set proper permissions
+chmod -R 755 storage bootstrap/cache
+chown -R www-data:www-data storage bootstrap/cache
+```
+
+### Database Issues
+
+```bash
+# Clear cache
+php artisan config:clear
+php artisan cache:clear
+
+# Re-run migrations
+php artisan migrate:fresh --seed
+```
+
+## 📁 Project Structure
+
+```
+kiranbroker/
+├── app/
+│   ├── Http/Controllers/    # Application controllers
+│   ├── Models/             # Eloquent models
+│   └── Views/              # Custom views
+├── resources/views/         # Blade templates
+├── public/                 # Public assets
+├── storage/                # File uploads
+└── database/               # Migrations and seeders
+```
+
+## 🔐 Security Features
+
+-   CSRF protection enabled
+-   XSS protection
+-   SQL injection prevention
+-   File upload validation
+-   Admin panel authentication
+
+## 📧 Contact & Support
+
+For technical support or questions about deployment, please contact the development team.
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+**Note**: This application uses Laravel 8.x with Voyager admin panel. Make sure your server meets all the requirements before deployment.

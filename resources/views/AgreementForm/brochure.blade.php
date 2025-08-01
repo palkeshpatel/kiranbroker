@@ -1,5 +1,8 @@
 
 @extends('layouts.default')
+@section('style')
+<link rel="stylesheet" href="{{ URL::asset('css/intlTelInput.css') }}">
+@stop
 @section('content')
 
 <section class="inner-banner-img">
@@ -46,16 +49,36 @@
 							 </div>-->
 							 <div class="col-md-6 form-group">
 								<label>Phone *</label>
-								<input type="text" class="form-control" name="phone" onkeypress="return isNumber(event)" oncopy="return false" onpaste="return false">
+                                {{-- <input type="text" class="form-control" name="phone" onkeypress="return isNumber(event)" oncopy="return false" onpaste="return false"> --}}
+								<input type="tel" class="form-control" name="phone" id="phone" oncopy="return false" onpaste="return false">
+								<input type="hidden" name="country_codes" id="country_codes">
+							 </div>
+
+                             <div class="col-md-6 form-group">
+								<label>Address *</label>
+								<input class="form-control" name="address">
 							 </div>
 
 							 <div class="col-md-6 form-group">
-								<label>Address 1 *</label>
-								<input class="form-control" name="address">
+								<label>Country *</label>
+								<select class="form-control" name="country" id="country">
+									<option value="">Select Country</option>
+								</select>
 							 </div>
-							
 
-							
+							 <div class="col-md-6 form-group">
+								<label>State *</label>
+								<select class="form-control" name="state" id="state">
+									<option value="">Select State</option>
+								</select>
+							 </div>
+
+							 <div class="col-md-6 form-group">
+								<label>ZIP Code *</label>
+								<input type="text" class="form-control" name="zip_code">
+							 </div>
+
+
 							 <input type="hidden" name="recaptcha_response" id="recaptchaResponse" value="03AGdBq27om4NmcUyZxZxT3c3skehqgh_q6IO2gIx7MxjPROanx_egAJ9baeExYN2589X0uwkHzvY4jGsFaGP6CDlSi1Z1w0kXjK4NvU2b4_I_jZxkrak3Utit9VqJNuarMsf0U9t9CFSsoGppk3ZMkPYqzKOzsJx9OZybGawuXOTJtQGb7tvNKzeaxdTkQYI4puPjr8r7ZKeL7btRAvY2942sIoqejYBM3ZNmCaDpdcVtjaZtyILUXEa5TOYBo-kqwoaOeBsJFwHn-mSZtSGlar6eLmhfhz1JLIoCJ2EAyn1Rfl1RP_FX1FR_GH7OGbkbeJrOIs2piQWHBq2DPkoo-B65_NfNkYWdfpZQwG4ZKa8E0zNEIEmbszRUh8pU4abc7o8haAwAPaLnvy4Y4cShSbjJKlRcyfnLhZZ-J81wksKiKCrVW7dtvHSnIuC3e0NYGNTdz0ML5LBrKUNGvQeVu2PcAwMlrvztRw">
 							 <div class="col-md-12">
 								<div class="checkbox"  style="display:none">
@@ -95,6 +118,21 @@
   </div>
 @stop
 @section('script')
+<script src="{{asset('js/intlTelInput.js') }}"></script>
+<script src="{{asset('js/country-states.js') }}"></script>
+<script>
+function waitForIntlTelInput(callback) {
+    if (typeof window.intlTelInput !== 'undefined') {
+        console.log('intlTelInput is available');
+        callback();
+    } else {
+        console.log('Waiting for intlTelInput...');
+        setTimeout(function() {
+            waitForIntlTelInput(callback);
+        }, 100);
+    }
+}
+</script>
 <script>
     (function(jQuery,W,D)
     {
@@ -130,7 +168,7 @@
                             //         } ,
                             //     },
                             // }
-                         },city: {
+                         },country: {
                             required: true,
                         },state : {
                             required: true,
@@ -146,10 +184,10 @@
                     messages: {
                         first_name: "First name required." ,
                         last_name:  "Last name required." ,
-                        city:  "City required." ,
+                        country:  "Country required." ,
                         state :  "State  required." ,
                         address:  "Address required." ,
-                        zip_ode:  "ZIP code required." ,
+                        zip_code:  "ZIP code required." ,
                         sign_initial:  "Sign initial required." ,
                         terms_conditions:  "Please select terms & conditions." ,
                         phone: {
@@ -182,11 +220,70 @@
         });
 
     })(jQuery, window, document);
-	
+
+    $(document).ready(function() {
+        var countrySelect = $('#country');
+        var stateSelect = $('#state');
+
+        for (var countryCode in country_and_states.country) {
+            var countryName = country_and_states.country[countryCode];
+            var option = $('<option></option>').val(countryName).text(countryName);
+            countrySelect.append(option);
+        }
+
+        countrySelect.val('United States');
+        updateStates('US');
+
+        countrySelect.on('change', function() {
+            var selectedCountry = $(this).val();
+            updateStates(selectedCountry);
+        });
+
+        function updateStates(countryCode) {
+            stateSelect.empty();
+            stateSelect.append('<option value="">Select State</option>');
+
+            if (country_and_states.states[countryCode]) {
+                var states = country_and_states.states[countryCode];
+                for (var i = 0; i < states.length; i++) {
+                    var state = states[i];
+                    var option = $('<option></option>').val(state.name).text(state.name);
+                    stateSelect.append(option);
+                }
+            }
+        }
+
+        var phoneInput = document.getElementById('phone');
+        console.log('Phone input found:', phoneInput);
+        if (phoneInput) {
+            waitForIntlTelInput(function() {
+                console.log('Initializing intlTelInput...');
+                window.iti = window.intlTelInput(phoneInput, {
+                    autoPlaceholder: "off",
+                    hiddenInput: "full_number",
+                    preferredCountries: ['us', 'in'],
+                    separateDialCode: true
+                });
+
+        phoneInput.addEventListener('countrychange', function() {
+            document.getElementById('country_codes').value = $(".iti__selected-dial-code").html();
+        });
+
+                setTimeout(function() {
+                    document.getElementById('country_codes').value = $(".iti__selected-dial-code").html();
+                }, 100);
+            });
+        }
+    });
+
     function submit_form(){
-		
+
             jQuery(".preloader").show();
             jQuery("#download_brochure input[name='task']").val('agreement_form');
+            var countryCode = $(".iti__selected-dial-code").html();
+            if (countryCode) {
+                jQuery("input[name='country_codes']").val(countryCode);
+            }
             var data = new FormData(jQuery("#download_brochure")[0]);
             jQuery.ajax({
                 type:"POST",
@@ -195,14 +292,17 @@
                 processData: false,
                 contentType: false,
                 success: function(data){
-					
+
                     //var data = JSON.parse(data);
-						
+
                         jQuery(".preloader").hide();
                         if(data.success){
-							
+
                             jQuery("#msg").html('<div class="alert alert-success">'+data.message+'</div>');
                             document.getElementById("download_brochure").reset();
+                            if (window.iti) {
+                                window.iti.setCountry('us');
+                            }
                             $("#msg").hide(10000);
                             window.open('/storage/'+$("#brochure").val(),'_blank');
 							// window.open('/storage/property/August2022/mpDQl1agPHzdHE9oSuhS.pdf', '_blank');
@@ -289,5 +389,5 @@
     //     });
     // });
 
-    </script>
+</script>
 @stop

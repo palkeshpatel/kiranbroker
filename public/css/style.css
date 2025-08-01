@@ -6011,7 +6011,7 @@ form.findus .select:after {
     background: #fff;
     -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-    height: 170px; 
+    height: 170px;
 }
 
 .contact-box p {
@@ -7572,7 +7572,7 @@ a.service-b:after {
 
 .navbar-brand {
     margin: 5px 0;
-    width: 110px; 
+    width: 110px;
 }
 .about_section_bg {
     background-image: url('../images/home_about_section.jpg');
@@ -7776,7 +7776,7 @@ width:100%;
     padding-top: 0;
     padding-left: 0;
 }
-.investment_list_right_part span { 
+.investment_list_right_part span {
     color: #e5293a;
     background-color: rgba(229, 41, 58, .2);
     font-size: 14px;
@@ -8210,7 +8210,7 @@ width:100%;
 }
 .contact_card {
    text-align: center;
-      min-height: 156px; 
+      min-height: 156px;
 }
 .contact_card .icon-contact {
    font-size: 25px;
@@ -8284,7 +8284,7 @@ body.home_page .sidemenu_btn>span {
     border-color: inherit !important;
 }
 
-#main-banner-area .overlay-dark { 
+#main-banner-area .overlay-dark {
     display: none;
 }
 
@@ -8294,12 +8294,12 @@ body.home_page .sidemenu_btn>span {
         font-size: 26px;
     }
     #site-footer .padding_bottom_half {
-        padding-bottom: 0rem; 
-    } 
+        padding-bottom: 0rem;
+    }
     .about-me-bg {
         padding: 20px !important;
     }
-    .about-me-bg .about-me { 
+    .about-me-bg .about-me {
         display: none;
     }
     .about-me-bg .about-me-text {
@@ -8542,7 +8542,7 @@ body.home_page .sidemenu_btn>span {
   border-top-color: #f9c922;
   animation: spin 1.5s linear infinite
 }
-@keyframes 
+@keyframes
 spin { 0% {
 transform:rotate(0deg)
 }
@@ -8611,10 +8611,9 @@ left: -40px;
     align-items: center;
 }
 
-
-
-
-
+.iti {
+    width: 100% !important;
+}
 
 
 

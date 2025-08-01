@@ -27,15 +27,15 @@ class AgreementFormController extends  \TCG\Voyager\Http\Controllers\VoyagerBase
             return 'false';
         }
     }
-	
+
 
     public function send_brochure(Request $request){
-		
-		
+
+
         $property=Property::where('id',$request['property_id'])->first();
-		
+
 		$brochure=json_decode($property->brochure,false);
-		$brochure=(!empty($brochure))?storage_path('app/public/').$brochure[0]->download_link:'';		
+		$brochure=(!empty($brochure))?storage_path('app/public/').$brochure[0]->download_link:'';
         $data=['email'=>'patel.palkesh@gmail.com','client_name'=>'Palkesh','brochure'=>$brochure];
 		if (file_exists($data['brochure'])) {
              Mail::send('emails.send_brochure', $data, function($message)use($data) {
@@ -50,8 +50,8 @@ class AgreementFormController extends  \TCG\Voyager\Http\Controllers\VoyagerBase
         } else {
 			return ['message'=>'Sorry No brochure atthed with this property.'];
         }
-		
-        
+
+
     }
     function addOrdinalNumberSuffix($num) {
         if (!in_array(($num % 100),array(11,12,13))){
@@ -82,7 +82,7 @@ class AgreementFormController extends  \TCG\Voyager\Http\Controllers\VoyagerBase
         return $homepage;
     }
     public function get_signature(Request $request){
-	
+
         $ConfidentialStatement=view('AgreementForm.signature')->render();
         $ConfidentialStatement=$this->BindSignatureText($request,$ConfidentialStatement);
 
@@ -121,12 +121,12 @@ class AgreementFormController extends  \TCG\Voyager\Http\Controllers\VoyagerBase
             return 'ok';
         }
     }
-	
-	
-		
+
+
+
     protected function bindPdf($id){
         $pdfHtml = view('AgreementForm.confidential')->render();
-        
+
         // $pdf=PDF::loadHTML($pdfHtml)->setPaper('a4', 'landscape')->setWarnings(false)->save('myfile.pdf');
        $pdf = PDF::setOptions(['logOutputFile' => null,])->loadView('AgreementForm.confidential');
     //    dd($pdf);
@@ -179,7 +179,7 @@ class AgreementFormController extends  \TCG\Voyager\Http\Controllers\VoyagerBase
 
 		return view('vendor.voyager-frontend.pages.property',['page'=>$myArray,'collection'=>$collection]);
 	}
-	
+
 	 public function contact(Request $request){
         $result=['status'=>'','message'=>''];
         if($this->recapch( $request)){
@@ -189,15 +189,15 @@ class AgreementFormController extends  \TCG\Voyager\Http\Controllers\VoyagerBase
             $contact->message =$request->message;
             $contact->created_at = date('Y-m-d h:i:s');
             $contact->save();
-			
+
 			$data = array('name'=>$request->name,'email'=>$request->email,'text'=>$request->message);
 			  Mail::send('emails.contact', $data, function($message) {
 				 $message->to('info@kiranbroker.com')->subject
 					('New contact');
-				
+
 			  });
-			
-			
+
+
             $result['success']=true;
              $result['message']="Thank you for inquiry we will get in touch with you shortly.";
             return $result;
@@ -215,25 +215,25 @@ class AgreementFormController extends  \TCG\Voyager\Http\Controllers\VoyagerBase
             $inquiry = new Inquiry();
             $inquiry->name =$request->name;
             $inquiry->phone = $request->country_codes.$request->phone;
-            $inquiry->email = $request->email;           
+            $inquiry->email = $request->email;
             $inquiry->services = $request->services;
             $inquiry->created_at = date('Y-m-d h:i:s');
             $inquiry->message =$request->message;
             $inquiry->save();
-			
+
 			  $data = array('name'=>$request->name,'phone'=>$request->country_codes.$request->phone,'email'=>$request->email,'services'=>$request->services,'text'=>$request->message);
 			  Mail::send('emails.inquiry', $data, function($message) {
 				 $message->to('info@kiranbroker.com')->subject
 					('New Inquiry');
-				
+
 			  });
-		
+
 			$result['success']=true;
             $result['message']="Thank you for inquiry we will get in touch with you shortly.";
         }else{
 			 $result['success']=false;
             $result['message']="Recapcha Issues";
-           
+
 		}
 		return $result;
     }
@@ -260,8 +260,8 @@ class AgreementFormController extends  \TCG\Voyager\Http\Controllers\VoyagerBase
 		}
 
     }
-	
-	
+
+
 	 public function create_brochure(Request $request){
         $property = Property::where('name',$request->subject)->first();
 		if(empty($property)){
@@ -269,26 +269,30 @@ class AgreementFormController extends  \TCG\Voyager\Http\Controllers\VoyagerBase
 		}
 		return view("AgreementForm.brochure",compact('property'));
 	 }
-	
+
 	 public function store_brochure(Request $request)
     {
 		// if($request->otp =! Session::get('otp')){
-        //  return response()->json(['error' => true, 'data' => [],'message'=>'otp is invalid']);   
+        //  return response()->json(['error' => true, 'data' => [],'message'=>'otp is invalid']);
         // }
 		$download_brochure = new DownloadBrochure();
-		
+
         $download_brochure->first_name = $request->first_name;
         $download_brochure->last_name = $request->last_name;
-        $download_brochure->email = $request->email;       
+        $download_brochure->email = $request->email;
         $download_brochure->phone = $request->phone;
+        // $download_brochure->phone = $request->country_codes . $request->phone;
         $download_brochure->otp = $request->otp;
         $download_brochure->address = $request->address;
+        $download_brochure->country = $request->country;
+        $download_brochure->state = $request->state;
+        $download_brochure->zip_code = $request->zip_code;
         $download_brochure->subject = $request->subject;
         $result= $download_brochure->save();
 		if($result){
 			return response()->json(['success' => true, 'data' => [],'message'=>'Thank you we will contact you shortly.']);
 		}
-        
+
     }
     protected $email;
     public function sendotp(Request $request){
@@ -297,7 +301,7 @@ class AgreementFormController extends  \TCG\Voyager\Http\Controllers\VoyagerBase
         //     'otp' => $otp,
         // ]);
         // $data = array('otp'=>$otp);
-   
+
     //   Mail::send(['text'=>'mail'], $data, function($message) {
     //      $message->to('urja.patel@fortiustechsolutions.com')->subject
     //         ('Otp Verification');
@@ -305,13 +309,13 @@ class AgreementFormController extends  \TCG\Voyager\Http\Controllers\VoyagerBase
     //   });
         // Mail::raw('Your Verification code is '.$otp, function($msg) {
         //     $msg->to('urja.patel@fortiustechsolutions.com')
-        //     ->subject('Otp Verication'); 
+        //     ->subject('Otp Verication');
         // });
         // dd($request->email);
         $this->email =$request->email;
         Mail::raw('Your Verification code is '.$otp, function($msg) {
             $msg->to($this->email)
-            ->subject('OTP Verication'); 
+            ->subject('OTP Verication');
         });
         Session::put('otp', $otp);
     }

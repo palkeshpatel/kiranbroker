@@ -50,7 +50,7 @@
 							 <div class="col-md-6 form-group">
 								<label>Phone *</label>
                                 {{-- <input type="text" class="form-control" name="phone" onkeypress="return isNumber(event)" oncopy="return false" onpaste="return false"> --}}
-								<input type="tel" class="form-control" name="phone" id="phone" oncopy="return false" onpaste="return false">
+								<input type="tel" class="form-control" name="phone" id="phone" oncopy="return false" onpaste="return false" onkeypress="return isNumber(event)">
 								<input type="hidden" name="country_codes" id="country_codes">
 							 </div>
 
@@ -75,7 +75,7 @@
 
 							 <div class="col-md-6 form-group">
 								<label>ZIP Code *</label>
-								<input type="text" class="form-control" name="zip_code">
+								<input type="text" class="form-control" name="zip_code" onkeypress="return isNumber(event)" oncopy="return false" onpaste="return false">
 							 </div>
 
 
